@@ -77,12 +77,10 @@ class ShipmondoService
             }.to_json
         }
 
-        puts "Body: #{options[:body]}"
         response = self.class.post("/shipments", options)
 
 
         if response.success?
-            puts response.body
             shipment_id = response.parsed_response["id"]
 
             package_numbers = response.parsed_response["parcels"].map { |parcel| parcel["pkg_no"] }
