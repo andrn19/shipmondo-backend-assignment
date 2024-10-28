@@ -1,4 +1,4 @@
-class ShipmentController < ApplicationController
+class ShipmentsController < ApplicationController
   def index
     @shipments = Shipment.all
     render json: @shipments

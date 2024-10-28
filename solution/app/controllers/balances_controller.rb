@@ -1,4 +1,4 @@
-class BalanceController < ApplicationController
+class BalancesController < ApplicationController
   before_action :set_balance, only: %i[ show destroy ]
 
   def index
