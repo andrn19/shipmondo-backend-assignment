@@ -6,9 +6,9 @@ class AccountsController < ApplicationController
 
   def create
     account_name = ShipmondoService.new.get_account
-    account_balance = ShipmondoService.new.get_account_balance
+    balance_data = ShipmondoService.new.get_account_balance
     @account = Account.new(name: account_name)
-    @account.balance = Balance.new(balance: account_balance[:balance])
+    @account.balance = Balance.new(balance: balance_data[:balance], currency: balance_data[:currency_code])
 
     if @account.save
       render json: @account, status: :created
